@@ -5,6 +5,8 @@ import pr_3 from '../../../static/img/product-img/product3.jpg'
 import pr_4 from '../../../static/img/product-img/product4.jpg'
 import pr_5 from '../../../static/img/product-img/product5.jpg'
 import pr_6 from '../../../static/img/product-img/product6.jpg'
+import { Link } from 'react-router-dom';
+import { ModuleConstants } from '../../../base/constants/ModuleConstants';
 
 const ProductList: React.FC = () => {
   const products = [
@@ -68,9 +70,9 @@ const ProductList: React.FC = () => {
                   <div className="product-meta-data">
                     <div className="line"></div>
                     <p className="product-price">{product.price}</p>
-                    <a href="product-details.html">
+                    <Link to={ModuleConstants.DETAIL_PRODUCT}>
                       <h6>{product.name}</h6>
-                    </a>
+                    </Link>
                   </div>
                   <div className="ratings-cart text-right">
                     <div className="ratings">
@@ -82,7 +84,7 @@ const ProductList: React.FC = () => {
                     </div>
                     <div className="cart">
                       <a href="cart.html" data-toggle="tooltip" data-placement="left" title="Add to Cart">
-                        <img src="img/core-img/cart.png" alt="" />
+                        <img src="../../../static/img/core-img/cart.png" alt="" />
                       </a>
                     </div>
                   </div>

@@ -8,6 +8,7 @@ import img_6 from '../../../static/img/bg-img/6.jpg'
 import img_7 from '../../../static/img/bg-img/7.jpg'
 import img_8 from '../../../static/img/bg-img/8.jpg'
 import img_9 from '../../../static/img/bg-img/9.jpg'
+import { ModuleConstants } from '../../../base/constants/ModuleConstants';
 
 
 const HomeContent = () => (
@@ -25,7 +26,7 @@ const HomeContent = () => (
                 { img: img_9, text: 'Home Deco', price: 'From $318' }
             ].map((item, index) => (
                 <div className="single-products-catagory clearfix" key={index}>
-                    <Link to="/shop">
+                    <Link to={ModuleConstants.SHOP}>
                         <img src={item.img} alt={item.text} />
                         <div className="hover-content">
                             <div className="line"></div>

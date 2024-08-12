@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import cart_1 from '../../../static/img/bg-img/cart1.jpg'
 import cart_2 from '../../../static/img/bg-img/cart2.jpg'
 import cart_3 from '../../../static/img/bg-img/cart3.jpg'
+import { Link } from 'react-router-dom';
+import { ModuleConstants } from '../../../base/constants/ModuleConstants';
 
 // Bạn có thể cần các đường dẫn hình ảnh hoặc thông tin khác
 const cartItems = [
@@ -62,9 +64,7 @@ const CartContent: React.FC = () => {
                   {cartItems.map((item) => (
                     <tr key={item.id}>
                       <td className="cart_product_img">
-                        <a href="#">
-                          <img src={item.imgSrc} alt="Product" />
-                        </a>
+                        <Link to={ModuleConstants.DETAIL_PRODUCT}><img src={item.imgSrc} alt="Product" /></Link>
                       </td>
                       <td className="cart_product_desc">
                         <h5>{item.name}</h5>

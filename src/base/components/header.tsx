@@ -3,6 +3,7 @@ import logo from '../../static/img/core-img/logo.png'
 import cart from '../../static/img/core-img/cart.png'
 import favorite from '../../static/img/core-img/favorites.png'
 import search from '../../static/img/core-img/search.png'
+import { ModuleConstants } from '../constants/ModuleConstants';
 
 interface HeaderProps {
   tab: number;
@@ -18,7 +19,7 @@ const Header: React.FC<HeaderProps> = ({ tab }) => {
         <i className="fa fa-close" aria-hidden="true"></i>
       </div>
       <div className="logo">
-        <Link to="/"><img src={logo} alt="Logo" /></Link>
+        <Link to={ModuleConstants.HOME}><img src={logo} alt="Logo" /></Link>
       </div>
       <nav className="amado-nav">
         <ul>
@@ -34,7 +35,7 @@ const Header: React.FC<HeaderProps> = ({ tab }) => {
         <Link to="#" className="btn amado-btn active">New this week</Link>
       </div>
       <div className="cart-fav-search mb-100">
-        <Link to="/cart" className="cart-nav"><img src={cart} alt="Cart" /> Cart <span>(0)</span></Link>
+        <Link to={ModuleConstants.CART} className="cart-nav"><img src={cart} alt="Cart" /> Cart <span>(0)</span></Link>
         <Link to="#" className="fav-nav"><img src={favorite} alt="Favorites" /> Favourite</Link>
         <Link to="#" className="search-nav"><img src={search} alt="Search" /> Search</Link>
       </div>

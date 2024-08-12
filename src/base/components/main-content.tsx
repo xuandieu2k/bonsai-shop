@@ -6,6 +6,7 @@ import HomeContent from '../../features/home/components/home-content';
 import DetailProductContent from '../../features/detail-product/components/detail-product-content';
 import CartContent from '../../features/cart/components/cart-content';
 import CheckoutContent from '../../features/checkout/components/checkout-content';
+import { ModuleConstants } from '../constants/ModuleConstants';
 
 interface MainContentProps {
   tab: number;
@@ -41,7 +42,7 @@ const MainContent: React.FC<MainContentProps> = ({ tab }) => {
     <div className="main-content-wrapper d-flex clearfix">
       <div className="mobile-nav">
         <div className="amado-navbar-brand">
-          <Link to="/"><img src={logo} alt="Logo" /></Link>
+          <Link to={ModuleConstants.HOME}><img src={logo} alt="Logo" /></Link>
         </div>
         <div className="amado-navbar-toggler">
           <span></span><span></span><span></span>

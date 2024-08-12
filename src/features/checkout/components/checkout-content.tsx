@@ -226,7 +226,7 @@ const CheckoutContent: React.FC = () => {
                     onChange={() => handlePaymentMethodChange('paypal')}
                   />
                   <label className="custom-control-label" htmlFor="paypal">
-                    Paypal <img className="ml-15" src="img/core-img/paypal.png" alt="" />
+                    Paypal <img className="ml-15" src="../../../static/img/core-img/paypal.png" alt="" />
                   </label>
                 </div>
               </div>
