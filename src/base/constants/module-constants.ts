@@ -3,5 +3,6 @@ export enum ModuleConstants {
     SHOP = '/shop',
     DETAIL_PRODUCT = '/product-details',
     CART = '/cart',
-    CHECKOUT = '/checkout'
+    CHECKOUT = '/checkout',
+    ADMIN = '/admin'
 }

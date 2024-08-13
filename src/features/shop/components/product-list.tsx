@@ -7,7 +7,7 @@ import pr_5 from '../../../static/img/product-img/product5.jpg'
 import pr_6 from '../../../static/img/product-img/product6.jpg'
 import ic_cart from '../../../static/img/core-img/cart.png'
 import { Link } from 'react-router-dom';
-import { ModuleConstants } from '../../../base/constants/ModuleConstants';
+import { ModuleConstants } from '../../../base/constants/module-constants';
 import { useTranslation } from 'react-i18next';
 
 const ProductList: React.FC = () => {

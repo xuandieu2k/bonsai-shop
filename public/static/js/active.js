@@ -1,7 +1,7 @@
 (function ($) {
     'use strict';
-    
-    $(window).on('load', function () {
+
+    function initJQueryPlugins() {
         var $window = $(window);
 
         // :: 1.0 Masonary Gallery Active Code
@@ -24,22 +24,22 @@
         var amadoSearch = $('.search-nav');
         var searchClose = $('.search-close');
 
-        amadoSearch.on('click', function () {
+        amadoSearch.off('click').on('click', function () {
             $('body').toggleClass('search-wrapper-on');
         });
 
-        searchClose.on('click', function () {
+        searchClose.off('click').on('click', function () {
             $('body').removeClass('search-wrapper-on');
         });
 
         // :: 2.2 Mobile Nav Active Code
         var amadoMobNav = $('div.amado-navbar-toggler');
         var navClose = $('.nav-close');
-        amadoMobNav.on('click', function () {
+        amadoMobNav.off('click').on('click', function () {
             $('.header-area').toggleClass('bp-xs-on');
         });
 
-        navClose.on('click', function () {
+        navClose.off('click').on('click', function () {
             $('.header-area').removeClass('bp-xs-on');
         });
 
@@ -53,7 +53,7 @@
         }
 
         // :: 4.0 Sticky Active Code
-        $window.on('scroll', function () {
+        $window.off('scroll').on('scroll', function () {
             if ($window.scrollTop() > 0) {
                 $('.header_area').addClass('sticky');
             } else {
@@ -89,7 +89,7 @@
         }
 
         // :: 10.0 PreventDefault a Click
-        $("a[href='#']").on('click', function (event) {
+        $("a[href='#']").off('click').on('click', function (event) {
             event.preventDefault();
         });
 
@@ -109,11 +109,28 @@
                 values: [value_min, value_max],
                 slide: function (event, ui) {
                     var result = label_result + " " + unit + ui.values[0] + ' - ' + unit + ui.values[1];
-                    console.log(t);
                     t.closest('.slider-range').find('.range-price').html(result);
                 }
             });
         });
+    }
+
+    // Đảm bảo mã chạy khi tài liệu sẵn sàng
+    $(document).ready(initJQueryPlugins);
+
+    // Theo dõi các thay đổi trong DOM để khởi tạo lại jQuery plugins
+    const observer = new MutationObserver(function (mutations) {
+        mutations.forEach(function (mutation) {
+            if (mutation.addedNodes.length) {
+                initJQueryPlugins();
+            }
+        });
+    });
+
+    // Theo dõi toàn bộ body
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
     });
 
 })(jQuery);

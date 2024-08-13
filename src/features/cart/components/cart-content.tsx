@@ -3,7 +3,7 @@ import cart_1 from '../../../static/img/bg-img/cart1.jpg'
 import cart_2 from '../../../static/img/bg-img/cart2.jpg'
 import cart_3 from '../../../static/img/bg-img/cart3.jpg'
 import { Link } from 'react-router-dom';
-import { ModuleConstants } from '../../../base/constants/ModuleConstants';
+import { ModuleConstants } from '../../../base/constants/module-constants';
 import { useTranslation } from 'react-i18next';
 
 // Bạn có thể cần các đường dẫn hình ảnh hoặc thông tin khác

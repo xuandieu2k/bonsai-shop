@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import logo from '../../static/img/core-img/logo2.png'
-import { ModuleConstants } from '../constants/ModuleConstants';
+import { ModuleConstants } from '../constants/module-constants';
 import { useTranslation } from 'react-i18next'
 
 const Footer: React.FC<{}> = () => {

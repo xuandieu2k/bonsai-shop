@@ -8,7 +8,7 @@ import img_6 from '../../../static/img/bg-img/6.jpg'
 import img_7 from '../../../static/img/bg-img/7.jpg'
 import img_8 from '../../../static/img/bg-img/8.jpg'
 import img_9 from '../../../static/img/bg-img/9.jpg'
-import { ModuleConstants } from '../../../base/constants/ModuleConstants';
+import { ModuleConstants } from '../../../base/constants/module-constants';
 
 
 const HomeContent = () => (

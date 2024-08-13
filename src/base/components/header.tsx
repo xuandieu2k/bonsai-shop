@@ -3,7 +3,7 @@ import logo from '../../static/img/core-img/logo.png'
 import cart from '../../static/img/core-img/cart.png'
 import favorite from '../../static/img/core-img/favorites.png'
 import search from '../../static/img/core-img/search.png'
-import { ModuleConstants } from '../constants/ModuleConstants';
+import { ModuleConstants } from '../constants/module-constants';
 import { useTranslation } from 'react-i18next'
 
 interface HeaderProps {

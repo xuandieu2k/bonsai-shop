@@ -6,7 +6,8 @@ import HomeContent from '../../features/home/components/home-content';
 import DetailProductContent from '../../features/detail-product/components/detail-product-content';
 import CartContent from '../../features/cart/components/cart-content';
 import CheckoutContent from '../../features/checkout/components/checkout-content';
-import { ModuleConstants } from '../constants/ModuleConstants';
+import { ModuleConstants } from '../constants/module-constants';
+import { TabContants } from '../constants/app-contants';
 
 interface MainContentProps {
   tab: number;
@@ -16,20 +17,20 @@ const MainContent: React.FC<MainContentProps> = ({ tab }) => {
 
   const renderContent = (tab: number) => {
     switch (tab) {
-      case 0: return (
+      case TabContants.HOME: return (
         <HomeContent />
       );
-      case 1: return (
+      case TabContants.SHOP: return (
         <ShopContent />
       );
 
-      case 2: return (
+      case TabContants.DETAIL_PRODUCT: return (
         <DetailProductContent />
       );
-      case 3: return (
+      case TabContants.CART: return (
         <CartContent />
       );
-      case 4: return (
+      case TabContants.CHECKOUT: return (
         <CheckoutContent />
       );
       default: return (
