@@ -8,8 +8,10 @@ import pr_6 from '../../../static/img/product-img/product6.jpg'
 import ic_cart from '../../../static/img/core-img/cart.png'
 import { Link } from 'react-router-dom';
 import { ModuleConstants } from '../../../base/constants/ModuleConstants';
+import { useTranslation } from 'react-i18next';
 
 const ProductList: React.FC = () => {
+  const {t} = useTranslation()
   const products = [
     { img: pr_1, hoverImg: pr_2, price: '$180', name: 'Modern Chair' },
     { img: pr_2, hoverImg: pr_3, price: '$180', name: 'Modern Chair' },
@@ -26,7 +28,7 @@ const ProductList: React.FC = () => {
           <div className="col-12">
             <div className="product-topbar d-xl-flex align-items-end justify-content-between">
               <div className="total-products">
-                <p>Showing 1-8 0f 25</p>
+                <p>{t('showing')} 1-8 0f 25</p>
                 <div className="view d-flex">
                   <a href="#"><i className="fa fa-th-large" aria-hidden="true"></i></a>
                   <a href="#"><i className="fa fa-bars" aria-hidden="true"></i></a>
@@ -34,23 +36,23 @@ const ProductList: React.FC = () => {
               </div>
               <div className="product-sorting d-flex">
                 <div className="sort-by-date d-flex align-items-center mr-15">
-                  <p>Sort by</p>
+                  <p>{t('sort_by')}</p>
                   <form action="#" method="get">
                     <select name="select" id="sortBydate">
-                      <option value="value">Date</option>
-                      <option value="value">Newest</option>
-                      <option value="value">Popular</option>
+                      <option value="value">{t('date')}</option>
+                      <option value="value">{t('newest')}</option>
+                      <option value="value">{t('popular')}</option>
                     </select>
                   </form>
                 </div>
                 <div className="view-product d-flex align-items-center">
-                  <p>View</p>
+                  <p>{t('view')}</p>
                   <form action="#" method="get">
                     <select name="select" id="viewProduct">
-                      <option value="value">12</option>
-                      <option value="value">24</option>
-                      <option value="value">48</option>
-                      <option value="value">96</option>
+                      <option value="value">10</option>
+                      <option value="value">20</option>
+                      <option value="value">50</option>
+                      <option value="value">100</option>
                     </select>
                   </form>
                 </div>

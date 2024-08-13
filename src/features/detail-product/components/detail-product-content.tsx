@@ -4,8 +4,11 @@ import pro_big_1 from '../../../static/img/product-img/pro-big-1.jpg'
 import pro_big_2 from '../../../static/img/product-img/pro-big-2.jpg'
 import pro_big_3 from '../../../static/img/product-img/pro-big-3.jpg'
 import pro_big_4 from '../../../static/img/product-img/pro-big-4.jpg'
+import { useTranslation } from 'react-i18next';
 
 const DetailProductContent: React.FC = () => {
+
+  const { t } = useTranslation()
 
   const handleQtyChange = (operation: 'increase' | 'decrease') => {
     const qtyInput = document.getElementById('qty') as HTMLInputElement;
@@ -86,10 +89,10 @@ const DetailProductContent: React.FC = () => {
                     <i className="fa fa-star" aria-hidden="true"></i>
                   </div>
                   <div className="review">
-                    <Link to="#">Write A Review</Link>
+                    <Link to="#">{t('write_a_review')}</Link>
                   </div>
                 </div>
-                <p className="avaibility"><i className="fa fa-circle"></i> In Stock</p>
+                <p className="avaibility"><i className="fa fa-circle"></i> {t('in_stock')}</p>
               </div>
 
               <div className="short_overview my-5">
@@ -98,14 +101,14 @@ const DetailProductContent: React.FC = () => {
 
               <form className="cart clearfix" method="post">
                 <div className="cart-btn d-flex mb-50">
-                  <p>Qty</p>
+                  <p>{t('qty')}</p>
                   <div className="quantity">
                     <span className="qty-minus" onClick={() => handleQtyChange('decrease')}><i className="fa fa-caret-down" aria-hidden="true"></i></span>
                     <input type="number" className="qty-text" id="qty" step="1" min="1" max="300" name="quantity" defaultValue="1" />
                     <span className="qty-plus" onClick={() => handleQtyChange('increase')}><i className="fa fa-caret-up" aria-hidden="true"></i></span>
                   </div>
                 </div>
-                <button type="submit" name="addtocart" value="5" className="btn amado-btn">Add to cart</button>
+                <button type="submit" name="addtocart" value="5" className="btn amado-btn">{t('add_to_cart')}</button>
               </form>
             </div>
           </div>

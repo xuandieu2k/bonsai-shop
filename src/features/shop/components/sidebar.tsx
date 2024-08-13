@@ -1,11 +1,14 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Sidebar: React.FC = () => {
+  const { t } = useTranslation()
+
   return (
     <div className="shop_sidebar_area">
       {/* ##### Single Widget ##### */}
       <div className="widget catagory mb-50">
-        <h6 className="widget-title mb-30">Catagories</h6>
+        <h6 className="widget-title mb-30">{t('catagories')}</h6>
         <div className="catagories-menu">
           <ul>
             <li className="active"><a href="#">Chairs</a></li>
@@ -21,7 +24,7 @@ const Sidebar: React.FC = () => {
 
       {/* ##### Single Widget ##### */}
       <div className="widget brands mb-50">
-        <h6 className="widget-title mb-30">Brands</h6>
+        <h6 className="widget-title mb-30">{t('brands')}</h6>
         <div className="widget-desc">
           {['Amado', 'Ikea', 'Furniture Inc', 'The factory', 'Artdeco'].map((brand, index) => (
             <div className="form-check" key={index}>
@@ -34,7 +37,7 @@ const Sidebar: React.FC = () => {
 
       {/* ##### Single Widget ##### */}
       <div className="widget color mb-50">
-        <h6 className="widget-title mb-30">Color</h6>
+        <h6 className="widget-title mb-30">{t('color')}</h6>
         <div className="widget-desc">
           <ul className="d-flex">
             {['color1', 'color2', 'color3', 'color4', 'color5', 'color6', 'color7', 'color8'].map((color, index) => (
@@ -46,7 +49,7 @@ const Sidebar: React.FC = () => {
 
       {/* ##### Single Widget ##### */}
       <div className="widget price mb-50">
-        <h6 className="widget-title mb-30">Price</h6>
+        <h6 className="widget-title mb-30">{t('price')}</h6>
         <div className="widget-desc">
           <div className="slider-range">
             <div data-min="10" data-max="1000" data-unit="$" className="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-value-min="10" data-value-max="1000" data-label-result="">

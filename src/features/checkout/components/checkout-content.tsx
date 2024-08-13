@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const CheckoutContent: React.FC = () => {
+
+  const { t } = useTranslation()
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -47,7 +51,7 @@ const CheckoutContent: React.FC = () => {
           <div className="col-12 col-lg-8">
             <div className="checkout_details_area mt-50 clearfix">
               <div className="cart-title">
-                <h2>Checkout</h2>
+                <h2>{t('checkout')}</h2>
               </div>
 
               <form action="#" method="post">
@@ -58,7 +62,7 @@ const CheckoutContent: React.FC = () => {
                       className="form-control"
                       id="firstName"
                       value={formData.firstName}
-                      placeholder="First Name"
+                      placeholder={`${t('first_name')}`}
                       onChange={handleChange}
                       required
                     />
@@ -69,7 +73,7 @@ const CheckoutContent: React.FC = () => {
                       className="form-control"
                       id="lastName"
                       value={formData.lastName}
-                      placeholder="Last Name"
+                      placeholder={`${t('last_name')}`}
                       onChange={handleChange}
                       required
                     />
@@ -80,7 +84,7 @@ const CheckoutContent: React.FC = () => {
                       className="form-control"
                       id="company"
                       value={formData.company}
-                      placeholder="Company Name"
+                      placeholder={`${t('company_name')}`}
                       onChange={handleChange}
                     />
                   </div>
@@ -117,7 +121,7 @@ const CheckoutContent: React.FC = () => {
                       className="form-control mb-3"
                       id="address"
                       value={formData.address}
-                      placeholder="Address"
+                      placeholder={t('address')}
                       onChange={handleChange}
                     />
                   </div>
@@ -127,7 +131,7 @@ const CheckoutContent: React.FC = () => {
                       className="form-control"
                       id="city"
                       value={formData.city}
-                      placeholder="Town"
+                      placeholder={`${t('city')}`}
                       onChange={handleChange}
                     />
                   </div>
@@ -137,7 +141,7 @@ const CheckoutContent: React.FC = () => {
                       className="form-control"
                       id="zipCode"
                       value={formData.zipCode}
-                      placeholder="Zip Code"
+                      placeholder={`${t('zip_code')}`}
                       onChange={handleChange}
                     />
                   </div>
@@ -148,7 +152,7 @@ const CheckoutContent: React.FC = () => {
                       id="phoneNumber"
                       value={formData.phoneNumber}
                       min="0"
-                      placeholder="Phone No"
+                      placeholder={`${t('phone_number')}`}
                       onChange={handleChange}
                     />
                   </div>
@@ -159,7 +163,7 @@ const CheckoutContent: React.FC = () => {
                       id="comment"
                       cols={30}
                       rows={10}
-                      placeholder="Leave a comment about your order"
+                      placeholder={`${t('leave_a_comment_about_your_order')}`}
                       value={formData.comment}
                       onChange={handleChange}
                     />
@@ -175,7 +179,7 @@ const CheckoutContent: React.FC = () => {
                         onChange={handleChange}
                       />
                       <label className="custom-control-label" htmlFor="createAccount">
-                        Create an account
+                        {t('create_an_account')}
                       </label>
                     </div>
                     <div className="custom-control custom-checkbox d-block">
@@ -187,7 +191,7 @@ const CheckoutContent: React.FC = () => {
                         onChange={handleChange}
                       />
                       <label className="custom-control-label" htmlFor="shipToDifferentAddress">
-                        Ship to a different address
+                        {t('ship_to_a_different_address')}
                       </label>
                     </div>
                   </div>
@@ -197,11 +201,11 @@ const CheckoutContent: React.FC = () => {
           </div>
           <div className="col-12 col-lg-4">
             <div className="cart-summary">
-              <h5>Cart Total</h5>
+              <h5>{t('total_cart')}</h5>
               <ul className="summary-table">
-                <li><span>subtotal:</span> <span>$140.00</span></li>
-                <li><span>delivery:</span> <span>Free</span></li>
-                <li><span>total:</span> <span>$140.00</span></li>
+                <li><span>{t('sub_total')} :</span> <span>$140.00</span></li>
+                <li><span>{t('delivery')} :</span> <span>Free</span></li>
+                <li><span>{t('total')} :</span> <span>$140.00</span></li>
               </ul>
 
               <div className="payment-method">
@@ -214,7 +218,7 @@ const CheckoutContent: React.FC = () => {
                     onChange={() => handlePaymentMethodChange('cod')}
                   />
                   <label className="custom-control-label" htmlFor="cod">
-                    Cash on Delivery
+                    {t('cash_on_deliver')}
                   </label>
                 </div>
                 <div className="custom-control custom-checkbox mr-sm-2">
@@ -232,7 +236,7 @@ const CheckoutContent: React.FC = () => {
               </div>
 
               <div className="cart-btn mt-100">
-                <a href="#" className="btn amado-btn w-100">Checkout</a>
+                <a href="#" className="btn amado-btn w-100">{t('checkout')}</a>
               </div>
             </div>
           </div>

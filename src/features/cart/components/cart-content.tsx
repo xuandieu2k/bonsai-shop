@@ -4,6 +4,7 @@ import cart_2 from '../../../static/img/bg-img/cart2.jpg'
 import cart_3 from '../../../static/img/bg-img/cart3.jpg'
 import { Link } from 'react-router-dom';
 import { ModuleConstants } from '../../../base/constants/ModuleConstants';
+import { useTranslation } from 'react-i18next';
 
 // Bạn có thể cần các đường dẫn hình ảnh hoặc thông tin khác
 const cartItems = [
@@ -28,6 +29,8 @@ const cartItems = [
 ];
 
 const CartContent: React.FC = () => {
+  const { t } = useTranslation()
+
   const [quantities, setQuantities] = useState<{ [key: string]: number }>({
     qty: 1,
     qty2: 1,
@@ -47,7 +50,7 @@ const CartContent: React.FC = () => {
         <div className="row">
           <div className="col-12 col-lg-8">
             <div className="cart-title mt-50">
-              <h2>Shopping Cart</h2>
+              <h2>{t('cart')}</h2>
             </div>
 
             <div className="cart-table clearfix">
@@ -55,9 +58,9 @@ const CartContent: React.FC = () => {
                 <thead>
                   <tr>
                     <th></th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
+                    <th>{t('name')}</th>
+                    <th>{t('price')}</th>
+                    <th>{t('qty')}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -74,7 +77,7 @@ const CartContent: React.FC = () => {
                       </td>
                       <td className="qty">
                         <div className="qty-btn d-flex">
-                          <p>Qty</p>
+                          <p>{t('qty')}</p>
                           <div className="quantity">
                             <span
                               className="qty-minus"
@@ -110,28 +113,26 @@ const CartContent: React.FC = () => {
           </div>
           <div className="col-12 col-lg-4">
             <div className="cart-summary">
-              <h5>Cart Total</h5>
+              <h5>{t('total_cart')}</h5>
               <ul className="summary-table">
                 <li>
-                  <span>subtotal:</span> <span>$140.00</span>
+                  <span>{t('sub_total')} :</span> <span>$140.00</span>
                 </li>
                 <li>
-                  <span>delivery:</span> <span>Free</span>
+                  <span>{t('delivery')} :</span> <span>{t('free')}</span>
                 </li>
                 <li>
-                  <span>total:</span> <span>$140.00</span>
+                  <span>{t('total')} :</span> <span>$140.00</span>
                 </li>
               </ul>
               <div className="cart-btn mt-100">
-                <a href="cart.html" className="btn amado-btn w-100">
-                  Checkout
-                </a>
-              </div>
+                <Link className='btn amado-btn w-100' to={ModuleConstants.CART}>{t('checkout')}</Link>
             </div>
           </div>
         </div>
       </div>
     </div>
+    </div >
   );
 };
 
