@@ -1,7 +1,7 @@
 export enum ModuleConstants {
     HOME = '/',
     SHOP = '/shop',
-    DETAIL_PRODUCT = '/detail-product',
+    DETAIL_PRODUCT = '/product-details',
     CART = '/cart',
     CHECKOUT = '/checkout'
 }

@@ -5,6 +5,7 @@ import pr_3 from '../../../static/img/product-img/product3.jpg'
 import pr_4 from '../../../static/img/product-img/product4.jpg'
 import pr_5 from '../../../static/img/product-img/product5.jpg'
 import pr_6 from '../../../static/img/product-img/product6.jpg'
+import ic_cart from '../../../static/img/core-img/cart.png'
 import { Link } from 'react-router-dom';
 import { ModuleConstants } from '../../../base/constants/ModuleConstants';
 
@@ -83,9 +84,9 @@ const ProductList: React.FC = () => {
                       <i className="fa fa-star" aria-hidden="true"></i>
                     </div>
                     <div className="cart">
-                      <a href="cart.html" data-toggle="tooltip" data-placement="left" title="Add to Cart">
-                        <img src="../../../static/img/core-img/cart.png" alt="" />
-                      </a>
+                      <Link to={ModuleConstants.CART} data-toggle="tooltip" data-placement="left" title="Add to Cart">
+                        <img src={ic_cart} alt="" />
+                      </Link>
                     </div>
                   </div>
                 </div>
