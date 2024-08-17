@@ -1,43 +1,107 @@
-import { Link } from 'react-router-dom';
-import img_1 from '../../../static/img/bg-img/1.jpg'
-import img_2 from '../../../static/img/bg-img/2.jpg'
-import img_3 from '../../../static/img/bg-img/3.jpg'
-import img_4 from '../../../static/img/bg-img/4.jpg'
-import img_5 from '../../../static/img/bg-img/5.jpg'
-import img_6 from '../../../static/img/bg-img/6.jpg'
-import img_7 from '../../../static/img/bg-img/7.jpg'
-import img_8 from '../../../static/img/bg-img/8.jpg'
-import img_9 from '../../../static/img/bg-img/9.jpg'
-import { ModuleConstants } from '../../../base/constants/module-constants';
+import { FC, Key, useEffect, useState } from 'react';
+import { getProducts } from '../api/product-api';
+import { BaseResponse, isSuccess } from '../../../base/api/base-response';
+import ItemProduct from './item-product';
+import { Product } from '../model/product';
+import { ResponeProduct } from '../model/respone-product';
 
 
-const HomeContent = () => (
-    <div className="products-catagories-area clearfix">
-        <div className="amado-pro-catagory clearfix">
-            {[
-                { img: img_1, text: 'Modern Chair', price: 'From $180' },
-                { img: img_2, text: 'Minimalistic Plant Pot', price: 'From $180' },
-                { img: img_3, text: 'Modern Chair', price: 'From $180' },
-                { img: img_4, text: 'Night Stand', price: 'From $180' },
-                { img: img_5, text: 'Plant Pot', price: 'From $18' },
-                { img: img_6, text: 'Small Table', price: 'From $320' },
-                { img: img_7, text: 'Metallic Chair', price: 'From $318' },
-                { img: img_8, text: 'Modern Rocking Chair', price: 'From $318' },
-                { img: img_9, text: 'Home Deco', price: 'From $318' }
-            ].map((item, index) => (
-                <div className="single-products-catagory clearfix" key={index}>
-                    <Link to={ModuleConstants.SHOP}>
-                        <img src={item.img} alt={item.text} />
-                        <div className="hover-content">
-                            <div className="line"></div>
-                            <p>{item.price}</p>
-                            <h4>{item.text}</h4>
-                        </div>
-                    </Link>
-                </div>
-            ))}
+const HomeContent: FC<{}> = () => {
+
+    const [products, setProducts] = useState<Product[]>([])
+
+    // const products: Product[] = [
+    //     new Product({
+    //         id: 1,
+    //         name: 'Product 1',
+    //         price: Math.floor(Math.random() * 1000),
+    //         url: 'https://images.pexels.com/photos/1643389/pexels-photo-1643389.jpeg'
+    //     }),
+    //     new Product({
+    //         id: 2,
+    //         name: 'Product 2',
+    //         price: Math.floor(Math.random() * 1000),
+    //         url: 'https://images.pexels.com/photos/1068532/pexels-photo-1068532.jpeg'
+    //     }),
+    //     new Product({
+    //         id: 3,
+    //         name: 'Product 3',
+    //         price: Math.floor(Math.random() * 1000),
+    //         url: 'https://images.pexels.com/photos/1781572/pexels-photo-1781572.jpeg'
+    //     }),
+    //     new Product({
+    //         id: 4,
+    //         name: 'Product 4',
+    //         price: Math.floor(Math.random() * 1000),
+    //         url: 'https://images.pexels.com/photos/302743/pexels-photo-302743.jpeg'
+    //     }),
+    //     new Product({
+    //         id: 5,
+    //         name: 'Product 5',
+    //         price: Math.floor(Math.random() * 1000),
+    //         url: 'https://images.pexels.com/photos/1327066/pexels-photo-1327066.jpeg'
+    //     }),
+    //     new Product({
+    //         id: 6,
+    //         name: 'Product 6',
+    //         price: Math.floor(Math.random() * 1000),
+    //         url: 'https://images.pexels.com/photos/735005/pexels-photo-735005.jpeg'
+    //     }),
+    //     new Product({
+    //         id: 7,
+    //         name: 'Product 7',
+    //         price: Math.floor(Math.random() * 1000),
+    //         url: 'https://images.pexels.com/photos/2078266/pexels-photo-2078266.jpeg'
+    //     }),
+    //     new Product({
+    //         id: 8,
+    //         name: 'Product 8',
+    //         price: Math.floor(Math.random() * 1000),
+    //         url: 'https://images.pexels.com/photos/264547/pexels-photo-264547.jpeg'
+    //     }),
+    //     new Product({
+    //         id: 9,
+    //         name: 'Product 9',
+    //         price: Math.floor(Math.random() * 1000),
+    //         url: 'https://images.pexels.com/photos/374132/pexels-photo-374132.jpeg'
+    //     }),
+    //     new Product({
+    //         id: 10,
+    //         name: 'Product 10',
+    //         price: Math.floor(Math.random() * 1000),
+    //         url: 'https://images.pexels.com/photos/462118/pexels-photo-462118.jpeg'
+    //     }),
+    // ];
+
+    const getDataProducts = async () => {
+        try {
+            const res: BaseResponse<ResponeProduct> =
+                await getProducts('', 9, 1);
+            if (isSuccess(res)) {
+                setProducts(res.data.data)
+                console.log(JSON.stringify(res.data))
+            } else {
+                console.log(res)
+            }
+        } catch (err) {
+            console.log('Lỗi:' + err)
+        }
+    }
+
+    useEffect(() => {
+        getDataProducts()
+    }, [])
+
+
+    return (
+        <div className="products-catagories-area clearfix">
+            <div className="amado-pro-catagory clearfix">
+                {products.length > 0 && products.map((item, index) => (
+                    <ItemProduct product={item} key={index}/>
+                ))}
+            </div>
         </div>
-    </div>
-);
+    )
+}
 
 export default HomeContent;
